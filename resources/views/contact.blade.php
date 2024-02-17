@@ -8,45 +8,32 @@
             <!-- Credit Card -->
             <div id="pay-invoice">
                 <div class="card-body">
-                    <form action="#" method="post" novalidate="novalidate">
-                        {{-- <div class="form-group text-center">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="text-muted fa fa-cc-visa fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-mastercard fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-amex fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-discover fa-2x"></i></li>
-                            </ul>
-                        </div> --}}
+                    <form action="{{ route('contact') }}" method="post" novalidate="novalidate">
+                        @csrf
 
                         {{-- name on Card --}}
                         <div class="form-group has-success">
-                            <label for="cc-name" class="control-label mb-1">Full Name</label>
-                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid"
-                                data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name"
-                                aria-required="true" aria-invalid="false" aria-describedby="cc-name">
-                            <span class="help-block field-validation-valid" data-valmsg-for="cc-name"
-                                data-valmsg-replace="true"></span>
+                            <label for="full_name" class="control-label mb-1">Full Name</label>
+                            <input id="full_name" name="full_name" type="text" class="form-control cc-name valid">
+                            <x-input-error :messages="$errors->get('full_name')" class="mt-2 text-danger" />
                         </div>
 
                         {{-- Contact number --}}
                         <div class="form-group">
-                            <label for="cc-number" class="control-label mb-1">Contact number</label>
-                            <input id="cc-number" name="cc-number" type="tel"
+                            <label for="contact_number" class="control-label mb-1">Contact number</label>
+                            <input id="contact_number" name="contact_number" type="tel"
                                 class="form-control cc-number identified visa" value="">
-                            <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            <x-input-error :messages="$errors->get('contact_number')" class="mt-2 text-danger" />
+
                         </div>
 
                         {{-- Email --}}
                         <div class="form-group">
-                            <label for="cc-number" class="control-label mb-1">Email</label>
-                            <input id="cc-number" name="cc-number" type="email"
-                                class="form-control cc-number identified visa" value="" data-val="true"
-                                data-val-required="Please enter the card number"
-                                data-val-cc-number="Please enter a valid card number">
-                            <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            <label for="email" class="control-label mb-1">Email</label>
+                            <input id="email" name="email" type="email"
+                                class="form-control cc-number identified visa" value="">
+                            <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                         </div>
-
-
 
                         <div>
                             <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">

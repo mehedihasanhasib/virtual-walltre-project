@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/contact', function () {
         return view('contact');
     })->name('contact');
+
+    Route::get('/contact', function () {
+        return view('contact');
+    })->name('contact');
+
+    Route::post('/contact', [ContactController::class, 'store']);
 
     Route::get('/bank', function () {
         return view('bank');
