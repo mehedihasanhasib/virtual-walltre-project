@@ -8,6 +8,7 @@
             <!-- Credit Card -->
             <div id="pay-invoice">
                 <div class="card-body">
+                    <h2>{{ session('message') }}</h2>
                     <form action="{{ route('contact') }}" method="post" novalidate="novalidate">
                         @csrf
 
