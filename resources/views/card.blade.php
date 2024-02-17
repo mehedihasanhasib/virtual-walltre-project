@@ -9,54 +9,41 @@
             <div id="pay-invoice">
                 <div class="card-body">
                     <form action="#" method="post" novalidate="novalidate">
-                        {{-- <div class="form-group text-center">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="text-muted fa fa-cc-visa fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-mastercard fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-amex fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-discover fa-2x"></i></li>
-                            </ul>
-                        </div> --}}
+                        @csrf
 
                         {{-- name on Card --}}
                         <div class="form-group has-success">
-                            <label for="cc-name" class="control-label mb-1">Name on card</label>
-                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid"
-                                data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name"
-                                aria-required="true" aria-invalid="false" aria-describedby="cc-name">
-                            <span class="help-block field-validation-valid" data-valmsg-for="cc-name"
-                                data-valmsg-replace="true"></span>
+                            <label for="name_on_card" class="control-label mb-1">Name on card</label>
+                            <input id="name_on_card" name="name_on_card" type="text" class="form-control">
+                            <x-input-error :messages="$errors->get('name_on_card')" class="mt-2 text-danger" />
+
                         </div>
 
                         {{-- card number --}}
                         <div class="form-group">
-                            <label for="cc-number" class="control-label mb-1">Card number</label>
-                            <input id="cc-number" name="cc-number" type="tel"
-                                class="form-control cc-number identified visa" value="" data-val="true"
-                                data-val-required="Please enter the card number"
-                                data-val-cc-number="Please enter a valid card number">
-                            <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            <label for="card_number" class="control-label mb-1">Card number</label>
+                            <input id="card_number" name="card_number" type="tel" class="form-control">
+                            <x-input-error :messages="$errors->get('card_number')" class="mt-2 text-danger" />
+
                         </div>
 
                         {{-- card expiration --}}
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp"
-                                        value="" data-val="true" data-val-required="Please enter the card expiration"
-                                        data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY">
-                                    <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                    <label for="expiration_date" class="control-label mb-1">Expiration</label>
+                                    <input id="expiration_date" name="expiration_date" type="date" class="form-control"
+                                        placeholder="YYYY/MM/DD">
+                                    <x-input-error :messages="$errors->get('expiration_date')" class="mt-2 text-danger" />
                                 </div>
                             </div>
 
                             {{-- security code --}}
                             <div class="col-6">
-                                <label for="x_card_code" class="control-label mb-1">Security code</label>
+                                <label for="security_code" class="control-label mb-1">Security code</label>
                                 <div class="input-group">
-                                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc"
-                                        value="" data-val="true" data-val-required="Please enter the security code"
-                                        data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
+                                    <input id="security_code" name="security_code" type="tel" class="form-control">
+                                    <x-input-error :messages="$errors->get('security_code')" class="mt-2 text-danger" />
                                 </div>
                             </div>
                         </div>

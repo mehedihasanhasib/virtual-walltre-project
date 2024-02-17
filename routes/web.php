@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BankController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/card', function () {
         return view('card');
     })->name('card');
+
+    Route::post('/card', [CardController::class, 'store']);
 
     Route::get('/passport', function () {
         return view('passport');
