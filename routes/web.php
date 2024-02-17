@@ -20,6 +20,14 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
+    Route::get('/landing', function () {
+        return view('landing');
+    })->name('landing');
+
+    Route::get('/payment', function () {
+        return view('payment');
+    })->name('payment');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
