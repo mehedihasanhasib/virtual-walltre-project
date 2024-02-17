@@ -17,5 +17,9 @@ class ContactController extends Controller
         ]);
         $validated_data['user_id'] = Auth::user()->id;
         Contact::create($validated_data);
+
+        return redirect()
+            ->route('bank')
+            ->with('message', 'Contact Info Uploaded Successfully');
     }
 }
