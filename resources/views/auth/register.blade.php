@@ -50,7 +50,6 @@
         </div>
     </form>
 </x-guest-layout> --}}
-
 @extends('layouts.guest')
 
 @section('content')
