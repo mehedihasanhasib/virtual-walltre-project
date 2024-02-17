@@ -23,44 +23,54 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
+    // landing page when a new user login
     Route::get('/landing', function () {
         return view('landing');
     })->name('landing');
 
+    // payment page for users, after selecting package
     Route::get('/payment', function () {
         return view('payment');
     })->name('payment');
 
+
+    // user dashboard, after uploading all their info
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
+    // contact info upload form,
     Route::get('/contact', function () {
         return view('contact');
     })->name('contact');
 
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact');
-
+    // contact info upload route to controller store function to store all data
     Route::post('/contact', [ContactController::class, 'store']);
 
+    // bank info upload form,
     Route::get('/bank', function () {
         return view('bank');
     })->name('bank');
 
+    // bank info upload route to controller store function to store all data
     Route::post('/bank', [BankController::class, 'store']);
 
+    // card info upload form
     Route::get('/card', function () {
         return view('card');
     })->name('card');
 
+    // card info upload route to controller store function to store all data
     Route::post('/card', [CardController::class, 'store']);
 
+
+    // passport info upload form,
     Route::get('/passport', function () {
         return view('passport');
     })->name('passport');
 
+
+    // nid info upload form
     Route::get('/nid', function () {
         return view('nid');
     })->name('nid');
