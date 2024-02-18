@@ -33,8 +33,6 @@
                             </a>
                         </li>
                     @endif
-
-
                 </ul><!-- /.navbar-collapse -->
         </nav>
     </aside>
@@ -42,9 +40,12 @@
 @endsection
 
 @section('content')
+    <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
     <div class="content mt-2">
         <div class="animated fadeIn">
             <div class="row">
+
+
                 {{-- contact Information --}}
                 @foreach ($contact_info as $contact)
                     <div class="col-lg-6">

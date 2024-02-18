@@ -13,7 +13,7 @@ class LandingPageController extends Controller
     public function index(Request $request)
     {
         if (!Auth::user()->new_user) {
-            if (Auth::login()) {
+            if (Auth::check()) {
                 return back();
             } else {
                 return redirect()->route('dashboard');

@@ -6,6 +6,7 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\NIDController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PassportController;
 use App\Http\Controllers\ProfileController;
@@ -90,9 +91,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     // nid info upload form
-    Route::get('/nid', function () {
-        return view('nid');
-    })->name('nid');
+    Route::get('/nid', [NIDController::class, 'create'])->name('nid');
+    Route::post('/nid', [NIDController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {

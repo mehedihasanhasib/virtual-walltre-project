@@ -13,6 +13,7 @@ class NID extends Model
         'father_name',
         'mother_name',
         'nid_number',
+        'dob',
         'user_id'
     ];
 }
