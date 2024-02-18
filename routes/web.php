@@ -52,9 +52,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('landing');
 
     // payment page for users, after selecting package
-    Route::get('/payment', function () {
-        return view('payment');
-    })->name('payment');
+    Route::post('/payment', [LandingPageController::class, 'next_page'])
+        ->name('payment');
 
 
     // user dashboard, after uploading all their info

@@ -108,7 +108,7 @@
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
                 @foreach ($packages as $package)
                     <div class="col">
-                        <form action="{{ route('payment') }}" method="GET">
+                        <form action="{{ route('payment') }}" method="POST">
                             @csrf
                             <div class="card mb-4 rounded-3 shadow-sm border-primary">
                                 <div class="card-header py-3 text-bg-primary border-primary">

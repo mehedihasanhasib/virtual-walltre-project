@@ -80,12 +80,11 @@
         <div class="content">
 
             <!-- Right Panel -->
-            <div id="right-panel" class="">
+            <div id="right-panel" class="{{ $right_panel ?? null }}">
                 <!-- Header-->
                 <header id="header" class="header">
-                    <div class="top-right">
+                    <div class="">
                         <div class="header-menu">
-
                             <div class="user-area dropdown float-right">
                                 <a href="#" class="dropdown-toggle active" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -96,10 +95,6 @@
                                 <div class="user-menu dropdown-menu">
                                     <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
-                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
-                                            class="count">13</span></a>
-
-                                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
                                     <a class="nav-link" id="logoutButton" style="cursor: pointer"><i
                                             class="fa fa-power -off"></i>Logout</a>
@@ -114,36 +109,36 @@
                     </div>
                 </header>
                 <!-- /#header -->
-
-                <!-- /.content -->
-                @yield('content')
-
             </div>
+            <!-- /.content -->
+            @yield('content')
+        </div>
 
-            <!-- Scripts -->
-            <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-            <script src="{{ asset('assets/js/main.js') }}"></script>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
-            <script>
-                jQuery(document).ready(function($) {
-                    "use strict";
+    <script>
+        jQuery(document).ready(function($) {
+            "use strict";
 
-                    //logout function
-                    $(document).ready(function() {
-                        // Attach a click event to the anchor tag
-                        $('#logoutButton').on('click', function(e) {
-                            e.preventDefault(); // Prevent the default behavior (opening a link)
+            //logout function
+            $(document).ready(function() {
+                // Attach a click event to the anchor tag
+                $('#logoutButton').on('click', function(e) {
+                    e.preventDefault(); // Prevent the default behavior (opening a link)
 
-                            // Submit the form
-                            $('#logout').submit();
-                        });
-                    });
+                    // Submit the form
+                    $('#logout').submit();
                 });
-            </script>
+            });
+        });
+    </script>
 </body>
 
 </html>
