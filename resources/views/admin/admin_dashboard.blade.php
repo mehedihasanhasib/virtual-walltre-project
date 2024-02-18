@@ -90,6 +90,12 @@
                         </a>
                     </li>
 
+                    <li class="menu-item {{ $create_roll ?? null }}">
+                        <a href="{{ route('roles.create') }}" class="dropdown-toggle ">
+                            Create Role
+                        </a>
+                    </li>
+
                     <li class="menu-item {{ $all_package ?? null }}">
                         <a href="{{ route('package.index') }}" class="dropdown-toggle ">
                             All Package

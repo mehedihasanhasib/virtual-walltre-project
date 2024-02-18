@@ -3,19 +3,15 @@
 
 <head>
     <script src="{{ asset('/js/color-modes.js') }}"></script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
     <title>Buy Package</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/pricing/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
     <link href="{{ asset('/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -94,10 +90,6 @@
             display: block !important;
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="pricing.css" rel="stylesheet">
 </head>
 
 <body>
@@ -130,6 +122,7 @@
                                             <li>{{ $features }}</li>
                                         @endforeach
                                     </ul>
+                                    <input type="hidden" name="package_id" value="{{ $package->id }}">
                                     <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
                                 </div>
                             </div>

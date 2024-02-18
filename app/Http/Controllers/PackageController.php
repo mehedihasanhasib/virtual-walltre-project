@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class PackageController extends Controller
 {
+
+    public function index()
+    {
+        $packages = Package::all();
+        return view('all_packages', [
+            'packages' => $packages
+        ]);
+    }
     // create the page to create package
     public function create()
     {

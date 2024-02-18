@@ -8,21 +8,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 /* Admin Routes */
-
 Route::prefix('admin')->group(function () {
     Route::get('login', [AdminController::class, 'index'])
         ->name('admin.login');
@@ -40,13 +35,16 @@ Route::middleware(['admin'])
 
         Route::resource('package', PackageController::class)
             ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+        Route::resource('roles', RoleController::class)
+            ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
     });
 /* Admin Routes */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
+
+
+// user routes
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // landing page when a new user login

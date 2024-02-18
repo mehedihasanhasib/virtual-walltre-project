@@ -35,7 +35,12 @@
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
 
                         <div class="register-link m-t-15 text-center">
-                            <p>Don't have account ? <a href="{{ route('register') }}" class="text-success"> Sign Up Here</a>
+                            <p>Don't have account ?
+                                <a href="{{ route('register') }}" class="text-success"> Sign Up Here</a>
+                            </p>
+
+                            <p>
+                                <a href="{{ route('admin.login') }}" class="text-success">Login</a> <span>as Admin</span>
                             </p>
                         </div>
                     </form>
