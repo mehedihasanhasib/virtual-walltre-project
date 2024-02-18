@@ -76,8 +76,7 @@
 
     @show
     <!-- Right Panel -->
-    <div id="right-panel" class="{{ $right_panel ?? null }}">
-        <!-- Header-->
+    <div id="right-panel" class="{{ $right_panel ?? null }} {{ $container }} mt-1">
         <header id="header" class="header">
             <div class="">
                 <div class="header-menu">
@@ -89,8 +88,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>{{ Auth::user()->name }}</a>
 
                             <a class="nav-link" id="logoutButton" style="cursor: pointer"><i
                                     class="fa fa-power -off"></i>Logout</a>

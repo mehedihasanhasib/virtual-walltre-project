@@ -1,8 +1,8 @@
-@extends('layouts.app', ['bank' => 'active', 'title' => 'Bank Information Upload'])
+@extends('layouts.app', ['bank' => 'active', 'title' => 'Bank Information Upload', 'container' => 'container'])
 @section('content')
     <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
 
-    <div class="card mt-4">
+    <div class="card mt-2">
         <div class="card-header">
             <strong class="card-title">Bank Information</strong>
         </div>

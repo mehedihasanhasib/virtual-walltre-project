@@ -1,4 +1,4 @@
-@extends('layouts.app', ['card' => 'active', 'title' => 'Card Information Upload'])
+@extends('layouts.app', ['card' => 'active', 'title' => 'Card Information Upload', 'container' => 'container'])
 @section('content')
     <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
     <div class="card">
