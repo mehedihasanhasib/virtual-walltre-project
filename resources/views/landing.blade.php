@@ -105,7 +105,7 @@
         </header>
 
         
-            {{-- <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
                 @foreach ($packages as $package)
                     <div class="col">
                         <form action="{{ route('payment') }}" method="POST">
@@ -129,10 +129,10 @@
                         </form>
                     </div>
                 @endforeach
-            </div> --}}
+            </div>
 
 
-            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
+            {{-- <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
                     <div class="col">
                         <form action="{{ route('payment') }}" method="POST">
                             @csrf
@@ -179,7 +179,7 @@
                         </div>
                     </form>
                 </div>
-        </div>
+        </div> --}}
 
             <form class="d-flex justify-content-center" action="{{ route('logout') }}" method="POST">
                 @csrf

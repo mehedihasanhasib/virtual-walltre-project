@@ -33,6 +33,8 @@ class RoleController extends Controller
         ]);
 
         Role::create($validated_data);
+
+        return redirect()->route('admin.dashboard');
     }
 
     /**

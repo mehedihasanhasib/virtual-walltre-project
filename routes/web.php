@@ -41,6 +41,13 @@ Route::middleware(['admin'])
         Route::get('/dashboard', [AdminController::class, 'dashboard'])
             ->name('admin.dashboard');
 
+        // User role change 
+         Route::get('/role_change',[AdminController::class, 'change_role_index'])
+        ->name('role_change');
+
+        // User role change 
+         Route::post('/role_change',[AdminController::class, 'change_role']);
+
         // resource methods for creating packages
         Route::resource('package', PackageController::class)
             ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);

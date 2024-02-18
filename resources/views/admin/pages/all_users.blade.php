@@ -18,6 +18,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -28,7 +29,18 @@
                                             <td>{{ $user->email }}</td>
                                             <td>
                                                 {{ $user->user_role ?? 'user' }} <br>
-                                                {{-- <a class="btn btn-sm btn-primary" href="">Change role</a> --}}
+                                            </td>
+                                            <td>    
+                                                <form action="{{ route('role_change') }}" method="GET" style="display: inline-block">                                            
+                                                    @csrf
+                                                    <input name="user_id" type="hidden" value="{{ $user->id }}">
+                                                    <button class="btn btn-sm btn-primary">Change Role</button>
+                                                </form>
+{{-- 
+                                                <form action="" style="display: inline-block">
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-danger" href="">Delete User</button>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
