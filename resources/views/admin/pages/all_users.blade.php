@@ -27,7 +27,8 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                {{ $user->user_role ?? 'user' }}
+                                                {{ $user->user_role ?? 'user' }} <br>
+                                                {{-- <a class="btn btn-sm btn-primary" href="">Change role</a> --}}
                                             </td>
                                         </tr>
                                     @endforeach
