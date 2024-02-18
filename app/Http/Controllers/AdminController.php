@@ -48,13 +48,12 @@ class AdminController extends Controller
 
     public function change_role(Request $request)
     {
-        $validated_data = $request->validate([
+        $request->validate([
             'user_role' => 'required'
         ]);
-
-
-        User::where('id', $request->input('user_id'))->update(['user_role'=> $validated_data['user_role']]);
-
+        
+        $user_role = Role::where('role_name', $request->input('user_role'))->get('id')->first();
+        User::where('id', $request->input('user_id'))->update(['user_role'=> $user_role->id]);
         return redirect()->route('admin.dashboard');
     }
 }
