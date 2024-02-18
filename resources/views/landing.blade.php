@@ -151,7 +151,7 @@
                                     <li>Phone and email support</li>
                                     <li>Help center access</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary">Buy Now</button>
+                                <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
                             </div>
                         </div>
                     </form>

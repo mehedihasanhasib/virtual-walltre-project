@@ -14,7 +14,7 @@
 
                         {{-- name on Card --}}
                         <div class="form-group has-success">
-                            <label for="name_on_card" class="control-label mb-1">Name on card</label>
+                            <label for="name_on_card" class="control-label mb-1">Card Holder</label>
                             <input id="name_on_card" name="name_on_card" type="text" class="form-control">
                             <x-input-error :messages="$errors->get('name_on_card')" class="mt-2 text-danger" />
 

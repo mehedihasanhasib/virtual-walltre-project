@@ -159,7 +159,7 @@
 
                     {{-- Bank Information --}}
                     @foreach ($bank_info as $bank)
-                        <div class="col-lg-6 col-12">
+                        <div class="col-lg-12 col-sm-12">
                             <div class="card">
                                 <div class="card-header"><strong>Bank Information</strong></div>
                                 <div class="card-body card-block">
