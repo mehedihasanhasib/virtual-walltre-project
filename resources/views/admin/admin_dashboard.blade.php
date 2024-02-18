@@ -85,24 +85,10 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ $contact ?? null }}">
-                        <a href="{{ route('contact') }}" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-phone"></i>
-                            Contact
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ $bank ?? null }}">
-                        <a href="{{ route('bank') }}">
-                            <i class="menu-icon fa fa-bank"></i>
-                            Bank
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ $card ?? null }}">
-                        <a href="{{ route('card') }}">
-                            <i class="menu-icon fa fa-credit-card"></i>
-                            Card
+                    <li class="menu-item {{ $create_package ?? null }}">
+                        <a href="{{ route('dashboard') }}" class="dropdown-toggle ">
+                            <i class="menu-icon fa fa-laptop"></i>
+                            Create Package
                         </a>
                     </li>
 
@@ -226,23 +212,9 @@
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
         <script src="{{ asset('assets/js/init/fullcalendar-init.js') }}"></script>
 
-        <!--Local Stuff-->
-        <script>
-            jQuery(document).ready(function($) {
-                "use strict";
+        @section('script')
 
-                //logout function
-                $(document).ready(function() {
-                    // Attach a click event to the anchor tag
-                    $('#logoutButton').on('click', function(e) {
-                        e.preventDefault(); // Prevent the default behavior (opening a link)
-
-                        // Submit the form
-                        $('#logout').submit();
-                    });
-                });
-            });
-        </script>
+        @show
 </body>
 
 </html>

@@ -23,9 +23,15 @@ use Illuminate\Support\Facades\Route;
 /* Admin Routes */
 
 Route::prefix('admin')->group(function () {
-    Route::get('login', [AdminController::class, 'index'])->name('admin.login');
+    Route::get('login', [AdminController::class, 'index'])
+        ->name('admin.login');
     Route::post('login', [AdminController::class, 'login']);
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])
+        ->name('admin.dashboard');
+    Route::post('/store_package', [AdminController::class, 'store_package'])
+        ->name('store_package');
+    Route::get('/create_package', [AdminController::class, 'create_package'])
+        ->name('create_package');
 });
 
 Route::resource('product', PackageController::class)

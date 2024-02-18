@@ -37,4 +37,16 @@ class AdminController extends Controller
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
     }
+
+    public function create_package()
+    {
+
+        return view('admin.pages.create_package');
+    }
+
+
+    public function store_package(Request $request)
+    {
+        dump($request->input());
+    }
 }
