@@ -9,19 +9,20 @@
                     <h3 style="color: blue; text-align: center">Admin Login</h3>
                     <form action="{{ route('admin.login') }}" method="POST">
                         @csrf
-
+                        <div class="text-center">
+                            <x-input-error :messages="session('message')" class="mt-2 text-danger" />
+                        </div>
                         {{-- email --}}
                         <div class="form-group">
                             <label>Email address</label>
                             <input name="email" type="email" class="form-control" placeholder="Email">
-                            <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                         </div>
 
                         {{-- password --}}
                         <div class="form-group">
                             <label>Password</label>
                             <input name="password" type="password" class="form-control" placeholder="Password">
-                            <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
+                            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" /> --}}
 
                         </div>
                         <div class="checkbox">

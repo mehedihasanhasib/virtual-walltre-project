@@ -29,7 +29,7 @@ class AdminController extends Controller
         ])) {
             return redirect()->route('admin.dashboard');
         } else {
-            return back();
+            return back()->with('message', 'Credentials doesn not match. Seed admin database first');
         }
     }
 
