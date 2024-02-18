@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +19,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+/* Admin Routes */
+
+Route::prefix('admin')->group(function () {
+    Route::get('login', [AdminController::class, 'index'])->name('admin.login');
+    Route::post('login', [AdminController::class, 'login']);
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+
+Route::resource('product', PackageController::class)
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    ->middleware(['admin']);
+/* Admin Routes */
 
 Route::get('/', function () {
     return view('auth.login');
