@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Package;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,12 @@ Route::prefix('admin')->group(function () {
         ->name('store_package');
     Route::get('/create_package', [AdminController::class, 'create_package'])
         ->name('create_package');
+});
+
+Route::get('/packages', function () {
+    foreach (Package::all() as $package) {
+        dump($package->features);
+    }
 });
 
 Route::resource('product', PackageController::class)

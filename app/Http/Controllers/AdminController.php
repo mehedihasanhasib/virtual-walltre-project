@@ -6,6 +6,7 @@ use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
 class AdminController extends Controller
 {
@@ -48,19 +49,17 @@ class AdminController extends Controller
 
     public function store_package(Request $request)
     {
-        $features = json_encode($request->input('features'));
-        // $validated_data = $request->validate([
-        //     'package_name' => 'required',
-        //     'price' => 'required',
-        // ]);
 
-        // $validated_data['features'] = $features;
-
-
-        Package::create([
-            'package_name' => $request->input('package_name'),
-            'price' => $request->input('package_price'),
-            'features' => $features
+        $validated_data = $request->validate([
+            'package_name' => 'required',
+            'price' => 'required',
+            'features.*' => 'required'
         ]);
+        $validated_data['features'] = json_encode($request->input('features'));
+        Package::create($validated_data);
+
+        return redirect()
+            ->route('admin.dashboard')
+            ->with('message', 'Package Created Successfully');
     }
 }

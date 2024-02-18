@@ -79,29 +79,31 @@
                 <ul class="nav navbar-nav">
 
                     <li class="menu-item {{ $dashboard ?? null }}">
-                        <a href="{{ route('dashboard') }}" class="dropdown-toggle ">
-                            <i class="menu-icon fa fa-laptop"></i>
+                        <a href="{{ route('admin.dashboard') }}" class="dropdown-toggle ">
                             Dashboard
                         </a>
                     </li>
 
                     <li class="menu-item {{ $create_package ?? null }}">
-                        <a href="{{ route('dashboard') }}" class="dropdown-toggle ">
-                            <i class="menu-icon fa fa-laptop"></i>
+                        <a href="{{ route('create_package') }}" class="dropdown-toggle ">
                             Create Package
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ $create_package ?? null }}">
+                        <a href="{{ route('create_package') }}" class="dropdown-toggle ">
+                            All Package
                         </a>
                     </li>
 
                     <li class="menu-item {{ $passport ?? null }}">
                         <a href="{{ route('passport') }}">
-                            <i class="menu-icon fa fa-passport"></i>
                             Passport
                         </a>
                     </li>
 
                     <li class="menu-item {{ $nid ?? null }}">
                         <a href="{{ route('nid') }}">
-                            <i class="menu-icon fa fa-id-card"></i>
                             National ID
                         </a>
                     </li>

@@ -19,12 +19,12 @@
                             <x-input-error :messages="$errors->get('package_name')" class="mt-2 text-danger" />
                         </div>
 
-                        {{-- package price --}}
+                        {{-- price --}}
                         <div class="form-group">
-                            <label for="package_price" class="control-label mb-1">Package Price</label>
-                            <input id="package_price" name="package_price" type="number" class="form-control"
-                                value="{{ old('package_price') }}">
-                            <x-input-error :messages="$errors->get('package_price')" class="mt-2 text-danger" />
+                            <label for="package_price" class="control-label mb-1">Package Price/Month</label>
+                            <input id="price" name="price" type="number" class="form-control"
+                                value="{{ old('price') }}">
+                            <x-input-error :messages="$errors->get('price')" class="mt-2 text-danger" />
 
                         </div>
 
