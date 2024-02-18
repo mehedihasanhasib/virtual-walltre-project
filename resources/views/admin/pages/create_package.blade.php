@@ -34,10 +34,9 @@
                             <button class="btn btn-sm btn-primary mb-2" id="add_more_feature">Add Feature</button>
                             <button class="btn btn-sm btn-danger mb-2" id="remove_feature">Remove Feature</button>
                             <div id="features-input">
-                                <input id="features" name="features[]" type="text" class="form-control"
-                                    value="{{ old('features') }}">
+                                <input id="features" name="features[]" type="text" class="form-control">
                             </div>
-                            <x-input-error :messages="$errors->get('features')" class="mt-2 text-danger" />
+                            <x-input-error :messages="$errors->get('features[]')" class="mt-2 text-danger" />
                         </div>
 
                         <div>

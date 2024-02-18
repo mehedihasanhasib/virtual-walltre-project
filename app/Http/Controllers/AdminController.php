@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,19 @@ class AdminController extends Controller
 
     public function store_package(Request $request)
     {
-        dump($request->input());
+        $features = json_encode($request->input('features'));
+        // $validated_data = $request->validate([
+        //     'package_name' => 'required',
+        //     'price' => 'required',
+        // ]);
+
+        // $validated_data['features'] = $features;
+
+
+        Package::create([
+            'package_name' => $request->input('package_name'),
+            'price' => $request->input('package_price'),
+            'features' => $features
+        ]);
     }
 }

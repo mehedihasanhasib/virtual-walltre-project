@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'package_name',
+        'price',
+        'features'
+    ];
+    protected $casts = [
+        'features' => 'array',
+    ];
 }
