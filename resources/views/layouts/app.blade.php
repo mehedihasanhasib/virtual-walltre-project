@@ -75,44 +75,44 @@
     @section('navigation')
 
     @show
-    <div id="" class="container">
+    <!-- Right Panel -->
+    <div id="right-panel" class="{{ $right_panel ?? null }}">
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="">
+                <div class="header-menu">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="{{ asset('images/admin.jpg') }}"
+                                alt="User Avatar">
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+
+                            <a class="nav-link" id="logoutButton" style="cursor: pointer"><i
+                                    class="fa fa-power -off"></i>Logout</a>
+                        </div>
+
+                        <form method="POST" action="{{ route('logout') }}" id="logout">
+                            @csrf
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- /#header -->
+
         <!-- Content -->
         <div class="content">
-
-            <!-- Right Panel -->
-            <div id="right-panel" class="{{ $right_panel ?? null }}">
-                <!-- Header-->
-                <header id="header" class="header">
-                    <div class="">
-                        <div class="header-menu">
-                            <div class="user-area dropdown float-right">
-                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <img class="user-avatar rounded-circle" src="{{ asset('images/admin.jpg') }}"
-                                        alt="User Avatar">
-                                </a>
-
-                                <div class="user-menu dropdown-menu">
-                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-
-                                    <a class="nav-link" id="logoutButton" style="cursor: pointer"><i
-                                            class="fa fa-power -off"></i>Logout</a>
-                                </div>
-
-                                <form method="POST" action="{{ route('logout') }}" id="logout">
-                                    @csrf
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </header>
-                <!-- /#header -->
-            </div>
             <!-- /.content -->
             @yield('content')
         </div>
+
+
 
     </div>
     <!-- Scripts -->
