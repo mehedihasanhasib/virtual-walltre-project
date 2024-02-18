@@ -10,12 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class LandingPageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $packages = Package::all();
-        return view('landing', [
-            'packages' => $packages
-        ]);
+        if (!Auth::user()->new_user) {
+            return back();
+        } else {
+            $packages = Package::all();
+
+            return view('landing', [
+                'packages' => $packages
+            ]);
+        }
     }
 
     public function next_page(Request $request)
@@ -29,5 +34,9 @@ class LandingPageController extends Controller
         User::where('id', $user_id)->update([
             'new_user' => false
         ]);
+
+        return redirect()
+            ->route('contact')
+            ->with('message', 'Payment Successfull');
     }
 }

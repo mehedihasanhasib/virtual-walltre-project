@@ -1,5 +1,6 @@
 @extends('layouts.app', ['contact' => 'active', 'title' => 'Contact Information Upload'])
 @section('content')
+    <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
     <div class="card mt-4">
         <div class="card-header">
             <strong class="card-title">Contact Information</strong>
@@ -8,7 +9,6 @@
             <!-- Credit Card -->
             <div id="pay-invoice">
                 <div class="card-body">
-                    <h2>{{ session('message') }}</h2>
                     <form action="{{ route('contact') }}" method="post" novalidate="novalidate">
                         @csrf
 

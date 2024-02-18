@@ -60,9 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // contact info upload form,
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact');
+    Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 
     // contact info upload route to controller store function to store all data
     Route::post('/contact', [ContactController::class, 'store']);

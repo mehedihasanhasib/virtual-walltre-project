@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
+
+    public function create()
+    {
+        return view('contact');
+    }
+
     public function store(Request $request)
     {
         $validated_data = $request->validate([
