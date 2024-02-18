@@ -20,6 +20,8 @@ XAMPP or any webserver and MySQL server installed is the primary requisition.
 
 To install this app just download or clone the repository and open a terminal in the same folder directory and run the following commands one by one:
 
+**First of all login as admin the credentials are given in the admin login page. Then create two package with exact name of "Standard" and "Premium". Then login as a user.**
+
 ```
 composer install
 ```
@@ -50,7 +52,7 @@ php artisan serve
 
 
 
-**First of all login as admin the credentials are given in the admin login page. Then create two package with exact name of "Standard" and "Premium". Then login as a user.**
+
 
 Now enjoy the app. ❤
 
