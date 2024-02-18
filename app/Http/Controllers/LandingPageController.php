@@ -7,17 +7,17 @@ use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class LandingPageController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        if (!Auth::user()->new_user) {
-            if (Auth::check()) {
-                return back();
-            } else {
-                return redirect()->route('dashboard');
-            }
+
+        $user_id = Subscription::where('user_id', Auth::user()->id)->get('user_id')->first();
+
+        if (!is_null($user_id)) {
+            return redirect()->intended('dashboard');
         } else {
             $packages = Package::all();
             return view('landing', [

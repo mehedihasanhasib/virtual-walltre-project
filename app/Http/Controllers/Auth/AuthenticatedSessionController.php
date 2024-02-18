@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Subscription;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
@@ -24,16 +25,17 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
-        if (Auth::user()->new_user) {
-            return redirect()->route('landing');
+        $user_id = Subscription::where('user_id', Auth::user()->id)->get('user_id')->first();
+
+        if (is_null($user_id)) {
+            return redirect()->intended(RouteServiceProvider::HOME);
         } else {
-            return redirect()->route('dashboard');
+            return redirect()->intended('dashboard');
         }
     }
 

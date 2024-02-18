@@ -158,7 +158,7 @@
                                     class="fa fa-power -off"></i>Logout</a>
                         </div>
 
-                        <form method="POST" action="{{ route('logout') }}" id="logout">
+                        <form method="POST" action="{{ route('admin.logout') }}" id="logout">
                             @csrf
                         </form>
                     </div>

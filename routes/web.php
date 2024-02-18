@@ -5,6 +5,7 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NIDController;
 use App\Http\Controllers\PackageController;
@@ -20,24 +21,31 @@ Route::get('/', function () {
 });
 
 /* Admin Routes */
+
+// admin login routes
 Route::prefix('admin')->group(function () {
     Route::get('login', [AdminController::class, 'index'])
         ->name('admin.login');
     Route::post('login', [AdminController::class, 'login']);
-});
+}); //
 
 Route::middleware(['admin'])
     ->prefix('admin')
     ->group(function () {
+
+        // logout admin
         Route::post('logout', [AdminController::class, 'logout'])
             ->name('admin.logout');
 
+        // admin dashboard basically show all the users
         Route::get('/dashboard', [AdminController::class, 'dashboard'])
             ->name('admin.dashboard');
 
+        // resource methods for creating packages
         Route::resource('package', PackageController::class)
             ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 
+        //resource method for creating roles
         Route::resource('roles', RoleController::class)
             ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
     });
@@ -93,6 +101,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // nid info upload form
     Route::get('/nid', [NIDController::class, 'create'])->name('nid');
     Route::post('/nid', [NIDController::class, 'store']);
+
+
+    // download passport pdf
+    Route::get('/download_passport', [DownloadController::class, 'passport'])
+        ->name('download_passport');
+
+    //download nid pdf
+    Route::get('/download_nid', [DownloadController::class, 'nid'])
+        ->name('download_nid');
 });
 
 Route::middleware('auth')->group(function () {

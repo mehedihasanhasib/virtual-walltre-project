@@ -1,59 +1,11 @@
-@extends('layouts.app', ['dashboard' => 'active', 'title' => 'Dashboard', 'right_panel' => 'right-panel'])
-
-@section('navigation')
-    <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-
-                    <li class="menu-item active">
-                        <a href="{{ route('dashboard') }}" class="dropdown-toggle ">
-                            Dashboard
-                        </a>
-                    </li>
-
-
-                    @if ($subs_info->package->package_name == 'Premium')
-                        <li class="menu-item {{ $passport ?? null }}">
-                            <a href="{{ route('passport') }}">
-                                Upload Passport
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ $nid ?? null }}">
-                            <a href="{{ route('nid') }}">
-                                Upload National ID
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ $download ?? null }}">
-                            <a href="{{ route('download_nid') }}">
-                                Download NID
-                            </a>
-                        </li>
-
-                        <li class="menu-item {{ $download ?? null }}">
-                            <a href="{{ route('download_passport') }}">
-                                Download Passport
-                            </a>
-                        </li>
-                    @endif
-                </ul><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-@endsection
+@extends('layouts.app', ['download' => 'active', 'title' => 'NID Download'])
 
 @section('content')
-    <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
     <div class="content mt-2">
         <div class="animated fadeIn">
             <div class="row">
-
-
                 {{-- contact Information --}}
-                @foreach ($contact_info as $contact)
+                @foreach ($nid_info as $nid)
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header"><strong>Contact Information</strong></div>
