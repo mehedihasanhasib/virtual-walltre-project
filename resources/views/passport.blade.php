@@ -1,5 +1,6 @@
-@extends('layouts.app', ['passport' => 'active'])
+@extends('layouts.app', ['passport' => 'active', 'title' => 'Passport Information', 'container' => 'container'])
 @section('content')
+    <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
     <div class="card">
         <div class="card-header">
             <strong class="card-title">Passport Information</strong>
@@ -8,32 +9,24 @@
             <!-- Credit Card -->
             <div id="pay-invoice">
                 <div class="card-body">
-                    <form action="#" method="post" novalidate="novalidate">
-                        {{-- <div class="form-group text-center">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="text-muted fa fa-cc-visa fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-mastercard fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-amex fa-2x"></i></li>
-                                <li class="list-inline-item"><i class="fa fa-cc-discover fa-2x"></i></li>
-                            </ul>
-                        </div> --}}
+                    <form action="{{ route('passport') }}" method="post">
+                        @csrf
 
-                        {{-- name on Card --}}
+                        {{-- name --}}
                         <div class="form-group has-success">
-                            <label for="cc-name" class="control-label mb-1">Full Name</label>
-                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid"
-                                data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name"
-                                aria-required="true" aria-invalid="false" aria-describedby="cc-name">
-                            <span class="help-block field-validation-valid" data-valmsg-for="cc-name"
-                                data-valmsg-replace="true"></span>
+                            <label for="name" class="control-label mb-1">Full Name</label>
+                            <input id="name" name="name" type="text" class="form-control"
+                                value="{{ old('name') }}">
+                            <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
+
                         </div>
 
-                        {{-- Contact number --}}
+                        {{-- passport number --}}
                         <div class="form-group">
-                            <label for="cc-number" class="control-label mb-1">Passport Number</label>
-                            <input id="cc-number" name="cc-number" type="tel"
-                                class="form-control cc-number identified visa" value="">
-                            <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            <label for="passport_number" class="control-label mb-1">Passport Number</label>
+                            <input id="passport_number" name="passport_number" type="tel" class="form-control"
+                                value="{{ old('passport_number') }}">
+                            <x-input-error :messages="$errors->get('passport_number')" class="mt-2 text-danger" />
                         </div>
 
                         <div>

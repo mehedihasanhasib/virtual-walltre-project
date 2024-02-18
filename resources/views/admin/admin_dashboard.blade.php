@@ -80,7 +80,7 @@
 
                     <li class="menu-item {{ $dashboard ?? null }}">
                         <a href="{{ route('admin.dashboard') }}" class="dropdown-toggle ">
-                            Dashboard
+                            All Users
                         </a>
                     </li>
 
@@ -102,7 +102,7 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ $passport ?? null }}">
+                    {{-- <li class="menu-item {{ $passport ?? null }}">
                         <a href="{{ route('passport') }}">
                             Passport
                         </a>
@@ -112,7 +112,7 @@
                         <a href="{{ route('nid') }}">
                             National ID
                         </a>
-                    </li>
+                    </li> --}}
 
 
 

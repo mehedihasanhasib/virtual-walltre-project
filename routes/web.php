@@ -86,6 +86,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/passport', [PassportController::class, 'create'])
         ->name('passport');
 
+    Route::post('/passport', [PassportController::class, 'store']);
+
 
     // nid info upload form
     Route::get('/nid', function () {
