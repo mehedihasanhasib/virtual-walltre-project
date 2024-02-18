@@ -22,8 +22,7 @@
                         {{-- Contact number --}}
                         <div class="form-group">
                             <label for="contact_number" class="control-label mb-1">Contact number</label>
-                            <input id="contact_number" name="contact_number" type="tel"
-                                class="form-control cc-number identified visa" value="">
+                            <input id="contact_number" name="contact_number" type="tel" class="form-control">
                             <x-input-error :messages="$errors->get('contact_number')" class="mt-2 text-danger" />
 
                         </div>
@@ -31,9 +30,15 @@
                         {{-- Email --}}
                         <div class="form-group">
                             <label for="email" class="control-label mb-1">Email</label>
-                            <input id="email" name="email" type="email"
-                                class="form-control cc-number identified visa" value="">
+                            <input id="email" name="email" type="email" class="form-control">
                             <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
+                        </div>
+
+                        {{-- address --}}
+                        <div class="form-group">
+                            <label for="address" class="control-label mb-1">Address</label>
+                            <input id="address" name="address" type="text" class="form-control">
+                            <x-input-error :messages="$errors->get('address')" class="mt-2 text-danger" />
                         </div>
 
                         <div>

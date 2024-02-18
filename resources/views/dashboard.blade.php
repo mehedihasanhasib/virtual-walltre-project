@@ -92,37 +92,7 @@
             <div class="animated fadeIn">
 
                 <div class="row">
-                    {{-- card Information --}}
-                    @foreach ($card_info as $card)
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header"><strong>Card Information</strong></div>
-                                <div class="card-body card-block">
-                                    <table class="table table-borderless">
-                                        <tr>
-                                            <td>Card Holder :</td>
-                                            <td>{{ $card->name_on_card }}</td>
-                                        </tr>
 
-                                        <tr>
-                                            <td>Card Number :</td>
-                                            <td>{{ $card->card_number }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Expiration Date :</td>
-                                            <td>{{ $card->expiration_date }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Security Code :</td>
-                                            <td>{{ $card->security_code }}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
                     {{-- contact Information --}}
                     @foreach ($contact_info as $contact)
                         <div class="col-lg-6">
@@ -155,6 +125,38 @@
                         </div>
                     @endforeach
 
+                    {{-- card Information --}}
+                    @foreach ($card_info as $card)
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header"><strong>Card Information</strong></div>
+                                <div class="card-body card-block">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td>Card Holder :</td>
+                                            <td>{{ $card->name_on_card }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Card Number :</td>
+                                            <td>{{ $card->card_number }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Expiration Date :</td>
+                                            <td>{{ $card->expiration_date }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Security Code :</td>
+                                            <td>{{ $card->security_code }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
                     {{-- Bank Information --}}
                     @foreach ($bank_info as $bank)
                         <div class="col-lg-6 col-12">
@@ -176,9 +178,28 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
-
-
             </div><!-- .animated -->
+            <form method="POST" action="{{ route('logout') }}" id="logout">
+                @csrf
+            </form>
+        @endsection
+
+        @section('script')
+            <script>
+                jQuery(document).ready(function($) {
+                    "use strict";
+
+                    //logout function
+                    $(document).ready(function() {
+                        // Attach a click event to the anchor tag
+                        $('#logoutButton').on('click', function(e) {
+                            e.preventDefault(); // Prevent the default behavior (opening a link)
+
+                            // Submit the form
+                            $('#logout').submit();
+                        });
+                    });
+                });
+            </script>
         @endsection

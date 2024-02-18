@@ -13,6 +13,7 @@ class Contact extends Model
         'full_name',
         'contact_number',
         'email',
+        'address',
         'user_id'
     ];
 }

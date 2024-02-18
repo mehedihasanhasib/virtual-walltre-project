@@ -16,6 +16,7 @@ class DashboardController extends Controller
         $bank_info = Bank::where('user_id', Auth::user()->id)->get();
         $card_info = Card::where('user_id', Auth::user()->id)->get();
 
+        // dump($contact_info);
 
         return view('dashboard', [
             'contact_info' => $contact_info,
