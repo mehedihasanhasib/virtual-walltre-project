@@ -50,5 +50,7 @@ php artisan serve
 
 
 
+**First of all login as admin the credentials are given in the admin login page. Then create two package with exact name of "Standard" and "Premium". Then login as a user.**
+
 Now enjoy the app. ❤
 

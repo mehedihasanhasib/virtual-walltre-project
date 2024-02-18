@@ -104,8 +104,8 @@
             </div>
         </header>
 
-        <main>
-            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
+        
+            {{-- <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
                 @foreach ($packages as $package)
                     <div class="col">
                         <form action="{{ route('payment') }}" method="POST">
@@ -129,12 +129,62 @@
                         </form>
                     </div>
                 @endforeach
+            </div> --}}
+
+
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
+                    <div class="col">
+                        <form action="{{ route('payment') }}" method="POST">
+                            @csrf
+                            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                                <div class="card-header py-3 text-bg-primary border-primary">
+                                    <h4 class="my-0 fw-normal">Standard</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h1 class="card-title pricing-card-title">$45<small
+                                            class="text-body-secondary fw-light">/month</small></h1>
+                                    <ul class="list-unstyled mt-3 mb-4">
+                                       <li>Personal Info</li>
+                                       <li>Bank Account</li>
+                                       <li>Card Info</li>
+                                    </ul>
+                                    <input type="hidden" name="package_id" value="1">
+                                    <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
             </div>
 
-            {{-- <form class="d-flex justify-content-center" action="{{ route('logout') }}" method="POST">
+
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
+                <div class="col">
+                    <form action="{{ route('payment') }}" method="POST">
+                        @csrf
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-bg-primary border-primary">
+                                <h4 class="my-0 fw-normal">Premium</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">$45<small
+                                        class="text-body-secondary fw-light">/month</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                   <li>Personal Info</li>
+                                   <li>Bank Account</li>
+                                   <li>Card Info</li>
+                                </ul>
+                                <input type="hidden" name="package_id" value="2">
+                                <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+
+            <form class="d-flex justify-content-center" action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button class="btn btn-sm btn-danger top-right">Logout</button>
-            </form> --}}
+            </form>
 
     </div>
 
