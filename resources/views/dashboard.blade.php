@@ -9,25 +9,25 @@
 
                     <li class="menu-item active">
                         <a href="{{ route('dashboard') }}" class="dropdown-toggle ">
-                            <i class="menu-icon fa fa-laptop"></i>
                             Dashboard
                         </a>
                     </li>
 
 
-                    <li class="menu-item {{ $passport ?? null }}">
-                        <a href="{{ route('passport') }}">
-                            <i class="menu-icon fa fa-passport"></i>
-                            Passport
-                        </a>
-                    </li>
+                    @if ($subs_info->package->package_name == 'Premium')
+                        <li class="menu-item {{ $passport ?? null }}">
+                            <a href="{{ route('passport') }}">
+                                Passport
+                            </a>
+                        </li>
 
-                    <li class="menu-item {{ $nid ?? null }}">
-                        <a href="{{ route('nid') }}">
-                            <i class="menu-icon fa fa-id-card"></i>
-                            National ID
-                        </a>
-                    </li>
+                        <li class="menu-item {{ $nid ?? null }}">
+                            <a href="{{ route('nid') }}">
+                                National ID
+                            </a>
+                        </li>
+                    @endif
+
 
                 </ul><!-- /.navbar-collapse -->
         </nav>

@@ -55,7 +55,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/payment', [LandingPageController::class, 'next_page'])
         ->name('payment');
 
-
     // user dashboard, after uploading all their info
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

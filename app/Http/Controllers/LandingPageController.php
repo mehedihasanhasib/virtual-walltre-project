@@ -13,10 +13,13 @@ class LandingPageController extends Controller
     public function index(Request $request)
     {
         if (!Auth::user()->new_user) {
-            return back();
+            if (Auth::login()) {
+                return back();
+            } else {
+                return redirect()->route('dashboard');
+            }
         } else {
             $packages = Package::all();
-
             return view('landing', [
                 'packages' => $packages
             ]);
