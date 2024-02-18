@@ -14,7 +14,7 @@ This is a virtual wallet web-application. User can save there personal, business
 
 #### Pre-requisite
 
-XAMPP or any webserver and MySQL server installed is the primary requisition.
+XAMPP installed is the primary requisition.
 
 #### Next-Steps
 
