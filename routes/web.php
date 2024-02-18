@@ -104,7 +104,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     // download passport pdf
-    Route::get('/download_passport', [DownloadController::class, 'passport'])
+    Route::get('/generate-pdf', [DownloadController::class, 'passport'])
         ->name('download_passport');
 
     //download nid pdf
