@@ -43,7 +43,7 @@
 
                         <div class="register-link m-t-15 text-center">
                             <p>
-                                <a href="{{ route('login') }}" class="text-primary">Login</a> <span>as Admin</span>
+                                <a href="{{ route('login') }}" class="text-primary">Login</a> <span>as User</span>
                             </p>
                         </div>
                     </form>

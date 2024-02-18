@@ -64,7 +64,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td>Contact Number :</td>
+                                        <td>Cell :</td>
                                         <td>{{ $contact->contact_number }}</td>
                                     </tr>
 

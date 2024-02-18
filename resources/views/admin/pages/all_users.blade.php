@@ -30,13 +30,14 @@
                                             <td>
                                                 {{ $user->user_role ?? 'user' }} <br>
                                             </td>
-                                            <td>    
-                                                <form action="{{ route('role_change') }}" method="GET" style="display: inline-block">                                            
+                                            <td>
+                                                <form action="{{ route('role_change') }}" method="GET"
+                                                    style="display: inline-block">
                                                     @csrf
                                                     <input name="user_id" type="hidden" value="{{ $user->id }}">
                                                     <button class="btn btn-sm btn-primary">Change Role</button>
                                                 </form>
-{{-- 
+                                                {{-- 
                                                 <form action="" style="display: inline-block">
                                                     @csrf
                                                     <button class="btn btn-sm btn-danger" href="">Delete User</button>

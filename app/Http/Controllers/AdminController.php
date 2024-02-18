@@ -43,7 +43,7 @@ class AdminController extends Controller
     public function change_role_index(Request $request)
     {
         $roles = Role::all();
-        return view('admin.pages.change_user_role', ['roles'=> $roles, 'user_id'=>$request->input('user_id')]);
+        return view('admin.pages.change_user_role', ['roles' => $roles, 'user_id' => $request->input('user_id')]);
     }
 
     public function change_role(Request $request)
@@ -51,9 +51,8 @@ class AdminController extends Controller
         $request->validate([
             'user_role' => 'required'
         ]);
-        
-        $user_role = Role::where('role_name', $request->input('user_role'))->get('id')->first();
-        User::where('id', $request->input('user_id'))->update(['user_role'=> $user_role->id]);
+
+        User::where('id', $request->input('user_id'))->update(['user_role' => $request->input('user_role')]);
         return redirect()->route('admin.dashboard');
     }
 }
