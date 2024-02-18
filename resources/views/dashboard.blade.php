@@ -29,8 +29,6 @@
                         </a>
                     </li>
 
-
-
                 </ul><!-- /.navbar-collapse -->
         </nav>
     </aside>

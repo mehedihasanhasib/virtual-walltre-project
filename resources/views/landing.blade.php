@@ -102,6 +102,11 @@
 
 <body>
 
+
+
+
+
+
     <div class="container py-3">
         <header>
             <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -158,8 +163,13 @@
                 </div>
             </div>
 
+            {{-- <form class="d-flex justify-content-center" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn btn-sm btn-danger top-right">Logout</button>
+            </form> --}}
 
     </div>
+
     <script src="{{ asset('/dist/js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
