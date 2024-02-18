@@ -39,6 +39,12 @@
                             <p>email: admin@admin.com</p>
                             <p>password: 12345678</p>
                         </div>
+
+                        <div class="register-link m-t-15 text-center">
+                            <p>
+                                <a href="{{ route('login') }}" class="text-primary">Login</a> <span>as Admin</span>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>

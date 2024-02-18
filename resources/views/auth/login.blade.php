@@ -36,11 +36,11 @@
 
                         <div class="register-link m-t-15 text-center">
                             <p>Don't have account ?
-                                <a href="{{ route('register') }}" class="text-success"> Sign Up Here</a>
+                                <a href="{{ route('register') }}" class="text-primary"> Sign Up Here</a>
                             </p>
 
                             <p>
-                                <a href="{{ route('admin.login') }}" class="text-success">Login</a> <span>as Admin</span>
+                                <a href="{{ route('admin.login') }}" class="text-primary">Login</a> <span>as Admin</span>
                             </p>
                         </div>
                     </form>

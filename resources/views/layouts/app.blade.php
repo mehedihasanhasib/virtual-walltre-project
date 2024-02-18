@@ -76,7 +76,7 @@
 
     @show
     <!-- Right Panel -->
-    <div id="right-panel" class="{{ $right_panel ?? null }} {{ $container }} mt-1">
+    <div id="right-panel" class="{{ $right_panel ?? null }} {{ $container ?? null }} mt-1">
         <header id="header" class="header">
             <div class="">
                 <div class="header-menu">

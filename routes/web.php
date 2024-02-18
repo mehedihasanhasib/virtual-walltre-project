@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PassportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -82,9 +83,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     // passport info upload form,
-    Route::get('/passport', function () {
-        return view('passport');
-    })->name('passport');
+    Route::get('/passport', [PassportController::class, 'create'])
+        ->name('passport');
 
 
     // nid info upload form
