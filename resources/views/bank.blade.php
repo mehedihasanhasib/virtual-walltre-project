@@ -1,7 +1,8 @@
 @extends('layouts.app', ['bank' => 'active', 'title' => 'Bank Information Upload'])
 @section('content')
     <h4 class="text-success text-center mb-3">{{ session('message') }}</h4>
-    <div class="card">
+
+    <div class="card mt-4">
         <div class="card-header">
             <strong class="card-title">Bank Information</strong>
         </div>
@@ -14,7 +15,7 @@
                         @csrf
                         {{-- account name --}}
                         <div class="form-group has-success">
-                            <label for="account_name" class="control-label mb-1">Account Name</label>
+                            <label for="account_name" class="control-label mb-1">Bank Account Name</label>
                             <input id="account_name" name="account_name" type="text" class="form-control cc-name valid"
                                 value="{{ old('account_name') }}">
                             <x-input-error :messages="$errors->get('account_name')" class="mt-2 text-danger" />
@@ -22,7 +23,7 @@
 
                         {{-- account number --}}
                         <div class="form-group">
-                            <label for="account_number" class="data-label mb-1">Account Number</label>
+                            <label for="account_number" class="data-label mb-1">Bank Account Number</label>
                             <input id="account_number" name="account_number" type="tel" class="form-control"
                                 value="{{ old('account_number') }}">
                             <x-input-error :messages="$errors->get('account_number')" class="mt-2 text-danger" />

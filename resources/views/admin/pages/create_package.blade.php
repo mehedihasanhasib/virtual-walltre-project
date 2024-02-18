@@ -8,7 +8,7 @@
             <!-- Credit Card -->
             <div id="pay-invoice">
                 <div class="card-body">
-                    <form action="{{ route('store_package') }}" method="POST">
+                    <form action="{{ route('package.store') }}" method="POST">
                         @csrf
 
                         {{-- package name --}}

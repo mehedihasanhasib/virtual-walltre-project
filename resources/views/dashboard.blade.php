@@ -182,22 +182,3 @@
                 @csrf
             </form>
         @endsection
-
-        @section('script')
-            <script>
-                jQuery(document).ready(function($) {
-                    "use strict";
-
-                    //logout function
-                    $(document).ready(function() {
-                        // Attach a click event to the anchor tag
-                        $('#logoutButton').on('click', function(e) {
-                            e.preventDefault(); // Prevent the default behavior (opening a link)
-
-                            // Submit the form
-                            $('#logout').submit();
-                        });
-                    });
-                });
-            </script>
-        @endsection

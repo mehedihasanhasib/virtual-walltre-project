@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Package;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +14,6 @@ class AdminController extends Controller
     {
         return view('admin.pages.all_users', ['users' => User::all()]);
     }
-
 
     public function index()
     {
@@ -38,28 +37,5 @@ class AdminController extends Controller
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
-    }
-
-    public function create_package()
-    {
-
-        return view('admin.pages.create_package');
-    }
-
-
-    public function store_package(Request $request)
-    {
-
-        $validated_data = $request->validate([
-            'package_name' => 'required',
-            'price' => 'required',
-            'features.*' => 'required'
-        ]);
-        $validated_data['features'] = json_encode($request->input('features'));
-        Package::create($validated_data);
-
-        return redirect()
-            ->route('admin.dashboard')
-            ->with('message', 'Package Created Successfully');
     }
 }

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Pricing example · Bootstrap v5.3</title>
+    <title>Buy Package</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/pricing/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -102,11 +102,6 @@
 
 <body>
 
-
-
-
-
-
     <div class="container py-3">
         <header>
             <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -119,48 +114,28 @@
 
         <main>
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center d-flex justify-content-center">
-                <div class="col">
-                    <form action="{{ route('payment') }}" method="GET">
-                        @csrf
-                        <div class="card mb-4 rounded-3 shadow-sm">
-                            <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Standard</h4>
+                @foreach ($packages as $package)
+                    <div class="col">
+                        <form action="{{ route('payment') }}" method="GET">
+                            @csrf
+                            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                                <div class="card-header py-3 text-bg-primary border-primary">
+                                    <h4 class="my-0 fw-normal">{{ $package->package_name }}</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h1 class="card-title pricing-card-title">${{ $package->price }}<small
+                                            class="text-body-secondary fw-light">/month</small></h1>
+                                    <ul class="list-unstyled mt-3 mb-4">
+                                        @foreach ($package->features as $features)
+                                            <li>{{ $features }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h1 class="card-title pricing-card-title">$15<small
-                                        class="text-body-secondary fw-light">/mo</small></h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>Upload Contact Info</li>
-                                    <li>Bank Account Info</li>
-                                    <li>Priority email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                                <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col">
-                    <form action="{{ route('payment') }}" method="GET">
-                        @csrf
-                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                            <div class="card-header py-3 text-bg-primary border-primary">
-                                <h4 class="my-0 fw-normal">Enterprise</h4>
-                            </div>
-                            <div class="card-body">
-                                <h1 class="card-title pricing-card-title">$29<small
-                                        class="text-body-secondary fw-light">/mo</small></h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>30 users included</li>
-                                    <li>15 GB of storage</li>
-                                    <li>Phone and email support</li>
-                                    <li>Help center access</li>
-                                </ul>
-                                <button type="submit" class="w-100 btn btn-lg btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                @endforeach
             </div>
 
             {{-- <form class="d-flex justify-content-center" action="{{ route('logout') }}" method="POST">

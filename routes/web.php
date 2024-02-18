@@ -5,9 +5,9 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Package;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,23 +27,20 @@ Route::prefix('admin')->group(function () {
     Route::get('login', [AdminController::class, 'index'])
         ->name('admin.login');
     Route::post('login', [AdminController::class, 'login']);
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])
-        ->name('admin.dashboard');
-    Route::post('/store_package', [AdminController::class, 'store_package'])
-        ->name('store_package');
-    Route::get('/create_package', [AdminController::class, 'create_package'])
-        ->name('create_package');
 });
 
-Route::get('/packages', function () {
-    foreach (Package::all() as $package) {
-        dump($package->features);
-    }
-});
+Route::middleware(['admin'])
+    ->prefix('admin')
+    ->group(function () {
+        Route::post('logout', [AdminController::class, 'logout'])
+            ->name('admin.logout');
 
-Route::resource('product', PackageController::class)
-    ->only(['index', 'store', 'edit', 'update', 'destroy'])
-    ->middleware(['admin']);
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])
+            ->name('admin.dashboard');
+
+        Route::resource('package', PackageController::class)
+            ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+    });
 /* Admin Routes */
 
 Route::get('/', function () {
@@ -53,9 +50,8 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // landing page when a new user login
-    Route::get('/landing', function () {
-        return view('landing');
-    })->name('landing');
+    Route::get('/landing', [LandingPageController::class, 'index'])
+        ->name('landing');
 
     // payment page for users, after selecting package
     Route::get('/payment', function () {

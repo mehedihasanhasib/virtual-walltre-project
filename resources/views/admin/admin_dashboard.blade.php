@@ -85,13 +85,13 @@
                     </li>
 
                     <li class="menu-item {{ $create_package ?? null }}">
-                        <a href="{{ route('create_package') }}" class="dropdown-toggle ">
+                        <a href="{{ route('package.create') }}" class="dropdown-toggle ">
                             Create Package
                         </a>
                     </li>
 
-                    <li class="menu-item {{ $create_package ?? null }}">
-                        <a href="{{ route('create_package') }}" class="dropdown-toggle ">
+                    <li class="menu-item {{ $all_package ?? null }}">
+                        <a href="{{ route('package.index') }}" class="dropdown-toggle ">
                             All Package
                         </a>
                     </li>
@@ -217,6 +217,26 @@
         @section('script')
 
         @show
+
+        {{-- logout script --}}
+
+        <script>
+            jQuery(document).ready(function($) {
+                "use strict";
+                //logout function
+                $(document).ready(function() {
+                    // Attach a click event to the anchor tag
+                    $('#logoutButton').on('click', function(e) {
+                        e.preventDefault(); // Prevent the default behavior (opening a link)
+
+                        // Submit the form
+                        $('#logout').submit();
+                    });
+                });
+            });
+        </script>
+
+
 </body>
 
 </html>

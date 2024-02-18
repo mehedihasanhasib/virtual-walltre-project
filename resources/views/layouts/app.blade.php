@@ -79,22 +79,71 @@
         <!-- Content -->
         <div class="content">
 
-            <!-- /.content -->
-            @yield('content')
+            <!-- Right Panel -->
+            <div id="right-panel" class="">
+                <!-- Header-->
+                <header id="header" class="header">
+                    <div class="top-right">
+                        <div class="header-menu">
 
-        </div>
+                            <div class="user-area dropdown float-right">
+                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <img class="user-avatar rounded-circle" src="{{ asset('images/admin.jpg') }}"
+                                        alt="User Avatar">
+                                </a>
 
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-        <script src="{{ asset('assets/js/main.js') }}"></script>
+                                <div class="user-menu dropdown-menu">
+                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                                            class="count">13</span></a>
+
+                                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                                    <a class="nav-link" id="logoutButton" style="cursor: pointer"><i
+                                            class="fa fa-power -off"></i>Logout</a>
+                                </div>
+
+                                <form method="POST" action="{{ route('logout') }}" id="logout">
+                                    @csrf
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+                <!-- /#header -->
+
+                <!-- /.content -->
+                @yield('content')
+
+            </div>
+
+            <!-- Scripts -->
+            <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+            <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
-        @section('script')
+            <script>
+                jQuery(document).ready(function($) {
+                    "use strict";
 
-        @show
+                    //logout function
+                    $(document).ready(function() {
+                        // Attach a click event to the anchor tag
+                        $('#logoutButton').on('click', function(e) {
+                            e.preventDefault(); // Prevent the default behavior (opening a link)
+
+                            // Submit the form
+                            $('#logout').submit();
+                        });
+                    });
+                });
+            </script>
 </body>
 
 </html>
