@@ -20,11 +20,17 @@ class DownloadController extends Controller
         ];
 
         $pdf = Pdf::loadView('download_passport', $data);
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('passport.pdf');
     }
 
-    public function mid()
+    public function nid()
     {
-        //
+        $user_id = Auth::user()->id;
+        $nid_info = NID::where('user_id', $user_id)->get();
+
+
+
+        $pdf = Pdf::loadView('download_nid', ['data' => $nid_info]);
+        return $pdf->download('nid.pdf');
     }
 }

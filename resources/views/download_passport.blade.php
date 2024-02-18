@@ -11,7 +11,7 @@
                         <div class="card-header"><strong>Contact Information</strong></div>
                         <div class="card-body card-block">
                             <table class="table table-borderless">
-                                @foreach ($passport_info as $passport)
+                                @foreach ($data as $passport)
                                     <tr>
                                         <td>Name :</td>
                                         <td>{{ $passport->name }}</td>

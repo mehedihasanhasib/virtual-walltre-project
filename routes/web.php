@@ -108,7 +108,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('download_passport');
 
     //download nid pdf
-    Route::get('/download_nid', [DownloadController::class, 'nid'])
+    Route::get('/generate-pdf', [DownloadController::class, 'nid'])
         ->name('download_nid');
 });
 
