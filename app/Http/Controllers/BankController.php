@@ -16,5 +16,9 @@ class BankController extends Controller
         ]);
         $validated_data['user_id'] = Auth::user()->id;
         Bank::create($validated_data);
+
+        return redirect()
+            ->route('card')
+            ->with('message', "Bank Account Info Uploaded Successfully");
     }
 }

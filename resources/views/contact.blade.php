@@ -1,4 +1,4 @@
-@extends('layouts.app', ['contact' => 'active', 'title' => 'Contact'])
+@extends('layouts.app', ['contact' => 'active', 'title' => 'Contact Information Upload'])
 @section('content')
     <div class="card">
         <div class="card-header">

@@ -72,7 +72,9 @@
 </head>
 
 <body>
+    @section('navigation')
 
+    @show
     <div id="" class="container">
         <!-- Content -->
         <div class="content">

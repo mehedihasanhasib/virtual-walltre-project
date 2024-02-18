@@ -18,5 +18,9 @@ class CardController extends Controller
         ]);
         $validated_data['user_id'] = Auth::user()->id;
         Card::create($validated_data);
+
+        return redirect()
+            ->route('dashboard')
+            ->with('message', "All Information Uploaded Successfully");
     }
 }
