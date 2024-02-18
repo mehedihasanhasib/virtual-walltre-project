@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Bank;
+use App\Models\Card;
+use App\Models\Passport;
 use App\Models\Subscription;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -30,11 +33,21 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
 
-        $user_id = Subscription::where('user_id', Auth::user()->id)->get('user_id')->first();
+        $user_id = Subscription::where('user_id', Auth::user()->id)->get()->first();
+        $passport = Passport::where('user_id', Auth::user()->id)->get()->first();
+        $bank = Bank::where('user_id', Auth::user()->id)->get()->first();
+        $card = Card::where('user_id', Auth::user()->id)->get()->first();
 
         if (is_null($user_id)) {
             return redirect()->intended(RouteServiceProvider::HOME);
-        } else {
+        } else if(is_null($passport)){
+            return redirect()->intended('passport');
+        } else if(is_null($bank)){
+            return redirect()->intended('bank');
+        }else if(is_null($card)){
+            return redirect()->intended('card');
+        }
+        else {
             return redirect()->intended('dashboard');
         }
     }
