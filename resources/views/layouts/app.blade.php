@@ -122,6 +122,7 @@
 
 
     <script>
+    /*
         jQuery(document).ready(function($) {
             "use strict";
 
@@ -136,6 +137,17 @@
                 });
             });
         });
+    */
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // logout function
+    document.getElementById('logoutButton').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default behavior (opening a link)
+
+        // Submit the form
+        document.getElementById('logout').submit();
+    });
+    });
     </script>
 </body>
 
